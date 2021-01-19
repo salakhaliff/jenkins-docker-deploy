@@ -12,6 +12,8 @@ node {
     //     echo 'Container Deployed in port 7000'
     // }
     stage('Deploying Docker Image'){
-        docker.image('salakhaliffjr/php-apache-plain:latest').withRun('-dit -p 7000:80')
+        docker.image('salakhaliffjr/php-apache-plain:latest').withRun('-dit -p 7000:80'){
+            sh 'while true; do sleep 1; done'
+        }
     }
 }
